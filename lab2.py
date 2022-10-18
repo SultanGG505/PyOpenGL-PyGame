@@ -1,10 +1,7 @@
-import pygame as pygame
-import random as random
-import numpy as np
-
+import pygame as pg
+import pygame.key
 from pygame.locals import *
 from OpenGL.GL import *
-from OpenGL.GLU import *
 
 
 def rect(fromX, toX, fromY, toY, sc):
@@ -56,22 +53,31 @@ def star(sc):
     glEnd()
     glPopMatrix()
 
-
 def main():
-    pygame.init()
-    pygame.display.set_caption('ФЛАГ АЛЖИРА')
-    display = (800, 600)
-    pygame.display.set_mode(display, DOUBLEBUF | OPENGL)
-    gluPerspective(45, (display[0] / display[1]), 0.1, 50.0)
-    glTranslatef(-0.75, 0.0, -3)
+    pg.init()
+    display = (1280, 720)
+    pg.display.set_mode(display, DOUBLEBUF | OPENGL)
+
+    scale = 1.0 / 16.0
     while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
+        keys = pygame.key.get_pressed()
+        glTranslatef(scale * 2.5, scale * 2.5, 0)
+        if keys[K_LEFT]:
+            glRotate(-0.2, 0, 0, 1)
+        if keys[K_RIGHT]:
+            glRotate(0.2, 0, 0, 1)
+        if keys[K_UP]:
+            glRotate(-0.2, 1, 0, 0)
+        if keys[K_DOWN]:
+            glRotate(0.2, 1, 0, 1)
+        glTranslatef(scale * -2.5, scale * -2.5, 0)
+
+        for event in pg.event.get():
+            if event.type == pg.QUIT:
+                pg.quit()
+                quit()
+
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-
-        scale = 0.1
-
         glColor4f(1.0, 1.0, 1.0, 0.0)
         rect(0, 8, -4, 5, scale)
 
@@ -80,7 +86,7 @@ def main():
 
         star(scale)
         pygame.display.flip()
-        pygame.time.wait(1)
+
 
 
 main()
