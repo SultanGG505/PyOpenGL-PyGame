@@ -12,6 +12,39 @@ def rect(fromX, toX, fromY, toY, sc):
     glVertex2f(fromX * sc, toY * sc)
     glEnd()
 
+def draww(size):
+    glBegin(GL_QUADS);
+
+    glVertex3f(-size / 2, -size / 2, -size / 2);
+    glVertex3f(-size / 2, size / 2, -size / 2);
+    glVertex3f(-size / 2, size / 2, size / 2);
+    glVertex3f(-size / 2, -size / 2, size / 2);
+
+    glVertex3f(size / 2, -size / 2, -size / 2);
+    glVertex3f(size / 2, -size / 2, size / 2);
+    glVertex3f(size / 2, size / 2, size / 2);
+    glVertex3f(size / 2, size / 2, -size / 2);
+
+    glVertex3f(-size / 2, -size / 2, -size / 2);
+    glVertex3f(-size / 2, -size / 2, size / 2);
+    glVertex3f(size / 2, -size / 2, size / 2);
+    glVertex3f(size / 2, -size / 2, -size / 2);
+
+    glVertex3f(-size / 2, size / 2, -size / 2);
+    glVertex3f(-size / 2, size / 2, size / 2);
+    glVertex3f(size / 2, size / 2, size / 2);
+    glVertex3f(size / 2, size / 2, -size / 2);
+
+    glVertex3f(-size / 2, -size / 2, -size / 2);
+    glVertex3f(size / 2, -size / 2, -size / 2);
+    glVertex3f(size / 2, size / 2, -size / 2);
+    glVertex3f(-size / 2, size / 2, -size / 2);
+
+    glVertex3f(-size / 2, -size / 2, size / 2);
+    glVertex3f(size / 2, -size / 2, size / 2);
+    glVertex3f(size / 2, size / 2, size / 2);
+    glVertex3f(-size / 2, size / 2, size / 2);
+    glEnd();
 
 def star(sc):
     x_to_plus = 7.5
@@ -79,12 +112,7 @@ def main():
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
         glColor4f(1.0, 1.0, 1.0, 0.0)
-        rect(0, 8, -4, 5, scale)
-
-        glColor3f(0.0, 0.45, 0.0)
-        rect(8, 16, -4, 5, scale)
-
-        star(scale)
+        draww(1)
         pygame.display.flip()
 
 
