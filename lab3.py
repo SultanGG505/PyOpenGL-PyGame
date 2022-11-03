@@ -1,132 +1,20 @@
 import pygame
 from pygame.locals import *
-
 from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
 
-import math
 
-
-def drawRect(fromX, toX, fromY, toY):
-    glBegin(GL_QUADS)
-    glVertex2f(fromX, fromY)
-    glVertex2f(toX, fromY)
-    glVertex2f(toX, toY)
-    glVertex2f(fromX, toY)
-    glEnd()
-
-
-def drawCube(w, h, z):
-    z = -z
-    glBegin(GL_POLYGON)
-    glVertex3f(-w, -h, z)
-    glVertex3f(-w, h, z)
-    glVertex3f(w, h, z)
-    glVertex3f(w, -h, z)
-    glEnd()
-    glBegin(GL_POLYGON)
-    glVertex3f(-w, -h, -z)
-    glVertex3f(-w, h, -z)
-    glVertex3f(w, h, -z)
-    glVertex3f(w, -h, -z)
-    glEnd()
-
-    glBegin(GL_POLYGON)
-    glVertex3f(-w, -h, -z)
-    glVertex3f(-w, h, -z)
-    glVertex3f(-w, h, z)
-    glVertex3f(-w, -h, z)
-    glEnd()
-    glBegin(GL_POLYGON)
-    glVertex3f(w, -h, -z)
-    glVertex3f(w, h, -z)
-    glVertex3f(w, h, z)
-    glVertex3f(w, -h, z)
-    glEnd()
-
-    glBegin(GL_POLYGON)
-    glVertex3f(-w, -h, -z)
-    glVertex3f(w, -h, -z)
-    glVertex3f(w, -h, z)
-    glVertex3f(-w, -h, z)
-    glEnd()
-    glBegin(GL_POLYGON)
-    glVertex3f(-w, h, -z)
-    glVertex3f(w, h, -z)
-    glVertex3f(w, h, z)
-    glVertex3f(-w, h, z)
-    glEnd()
-
-
-def drawTriangle(h, z):
-    z = -z
-
-    glBegin(GL_POLYGON)
-    glVertex3f(0, -h, z)
-    glVertex3f(0, h, z)
-    glVertex3f(0, 0, -0.5 * z)
-    glEnd()
-
-
-def drawCat():
-    # основа дома
-    glColor4f(1, 0.0, 0, 0)
-    glTranslatef(0, 0, 0.0)
-    drawCube(0.1, 0.1, 0.1)
-    glTranslatef(0, 0, -0.0)
-
-    # окно
-    glColor4f(0, 1, 1, 1)
-    glTranslatef(-0.105, -0.05, -0.01)
-    drawCube(0.01, 0.03, 0.03)
-    glTranslatef(0.105, 0.03, 0.01)
-
-    # дверь
-    glColor4f(1, 0.5, 0, 0)
-    glTranslatef(-0.105, 0.05, -0.01)
-    drawCube(0.01, 0.03, 0.07)
-    glTranslatef(0.105, -0.05, 0.01)
-
-    # ручка
-    glColor3f(0, 0, 0)
-    glTranslatef(-0.115, 0.07, -0.01)
-    drawCube(0.001, 0.01, 0.01)
-    glTranslatef(0.115, -0.07, 0.01)
-
-    # передняя стенка-держатель крыши
-    glColor4f(0, 1.0, 0, 0)
-    glTranslatef(-0.1, 0.02, 0.16)
-    drawTriangle(0.1, 0.06)
-    glTranslatef(0.1, -0.02, -0.16)
-
-    # задняя стенка-держатель крыши
-    glColor4f(0, 1.0, 0, 0)
-    glTranslatef(0.1, 0.02, 0.16)
-    drawTriangle(0.1, 0.06)
-    glTranslatef(-0.1, -0.02, -0.16)
-
-    # правая часть крыши
-    glColor3f(0, 0, 1)
-    glTranslatef(-0, -0.02, 0.16)
-    glRotatef(41.0, 1.0, 0.0, 0.0)
-    drawRect(-0.137, 0.137, -0.1, 0.055)
-    glRotatef(-41.0, 1.0, 0.0, 0.0)
-    glTranslatef(0, 0.02, -0.16)
-
-    # левая часть крыши
-    glColor3f(0, 0, 1)
-    glTranslatef(-0, 0.089, 0.13)
-    glRotatef(-42.0, 1.0, 0.0, 0.0)
-    drawRect(-0.137, 0.137, -0.1, 0.055)
-    glRotatef(42.0, 1.0, 0.0, 0.0)
-    glTranslatef(0, -0.089, -0.13)
+def draw():
+    glColor3f(0.2, 0.13, 0.0)
+    glutSolidCube(1.0)
 
 
 pygame.init()
 display = (1200, 900)
 scree = pygame.display.set_mode(display, DOUBLEBUF | OPENGL)
 
+glutInit(sys.argv)
 glEnable(GL_DEPTH_TEST)
 glEnable(GL_LIGHTING)
 glShadeModel(GL_SMOOTH)
@@ -213,9 +101,7 @@ while run:
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
         glPushMatrix()
-
-        drawCat()
-
+        draw()
         glPopMatrix()
 
         pygame.display.flip()
