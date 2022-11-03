@@ -49,57 +49,120 @@ def drawBubliks():
 
 
 def drawBear():
+    # голова
+    glColor3f(66 / 255, 40 / 255, 0 / 255)
+    glTranslatef(-0.55, 0, -0.4 - 0.5)
+    glutSolidCube(0.5)
+    glTranslatef(0.55, 0, 0.4 + 0.5)
+
+    # левое ухо
+    glColor3f((66 - 20) / 255, (40 - 20) / 255, 0 / 255)
+    glTranslatef(-0.80, 0, -0.16 - 0.5)
+    glutSolidCube(0.2)
+    glTranslatef(0.80, 0, 0.16 + 0.5)
+
+    # правое ухо
+    glColor3f((66 - 20) / 255, (40 - 20) / 255, 0 / 255)
+    glTranslatef(-0.30, 0, -0.16 - 0.5)
+    glutSolidCube(0.2)
+    glTranslatef(0.30, 0, 0.16 + 0.5)
+
+    # левый глаз
+    glColor3f(255 / 255, 255 / 255, 255 / 255)
+    glTranslatef(-0.65, -0.3, -0.3 - 0.5)
+    glutSolidCube(0.1)
+    glTranslatef(0.65, 0.3, 0.3 + 0.5)
+
+    # левый зрачок
+    glColor3f(0 / 255, 0 / 255, 0 / 255)
+    glTranslatef(-0.65, -0.3 - 0.05, -0.3 - 0.5)
+    glutSolidCube(0.05)
+    glTranslatef(0.65, 0.3 + 0.05, 0.3 + 0.5)
+
+    # правый глаз
+    glColor3f(255 / 255, 255 / 255, 255 / 255)
+    glTranslatef(-0.45, -0.3, -0.3 - 0.5)
+    glutSolidCube(0.1)
+    glTranslatef(0.45, 0.3, 0.3 + 0.5)
+
+    # правый зрачок
+    glColor3f(0 / 255, 0 / 255, 0 / 255)
+    glTranslatef(-0.45, -0.3 - 0.05, -0.3 - 0.5)
+    glutSolidCube(0.05)
+    glTranslatef(0.45, 0.3 + 0.05, 0.3 + 0.5)
+
+    # что-то возможно похожее на рот
+
+    glColor3f(255 / 255, 0 / 255, 0 / 255)
+    glTranslatef(-0.45, -0.25 - 0.05, -0.5 - 0.5)
+    glutSolidCube(0.1)
+    glTranslatef(0.45, 0.25 + 0.05, 0.5 + 0.5)
+
+    glTranslatef(-0.45 - 0.1, -0.25 - 0.05, -0.5 - 0.5)
+    glutSolidCube(0.1)
+    glTranslatef(0.45 + 0.1, 0.25 + 0.05, 0.5 + 0.5)
+
+    glTranslatef(-0.45 - 0.1 * 2, -0.25 - 0.05, -0.5 - 0.5)
+    glutSolidCube(0.1)
+    glTranslatef(0.45 + 0.1 * 2, 0.25 + 0.05, 0.5 + 0.5)
+
+    # шея
+    glColor3f(66 / 255, 40 / 255, 0 / 255)
+    glTranslatef(-0.55, 0, -0.7 - 0.5)
+    glutSolidCube(0.2)
+    glTranslatef(0.55, 0, 0.7 + 0.5)
+
     # нижняя часть туловища
     glColor3f(66 / 255, 40 / 255, 0 / 255)
-    glTranslatef(-0.55, 0, -1.5)
+    glTranslatef(-0.55, 0, -1.5 - 0.5)
     glutSolidCube(0.5)
-    glTranslatef(0.55, 0, 1.5)
+    glTranslatef(0.55, 0, 1.5 + 0.5)
 
     # левая нога
     glColor3f(30 / 255, 30 / 255, 30 / 255)
-    glTranslatef(-0.75, -0.32, -1.63)
+    glTranslatef(-0.75, -0.32, -1.63 - 0.5)
     glutSolidCube(0.125)
-    glTranslatef(0.75, 0.32, 1.63)
+    glTranslatef(0.75, 0.32, 1.63 + 0.5)
 
     # правая нога
     glColor3f(30 / 255, 30 / 255, 30 / 255)
-    glTranslatef(-0.35, -0.32, -1.63)
+    glTranslatef(-0.35, -0.32, -1.63 - 0.5)
     glutSolidCube(0.125)
-    glTranslatef(0.35, 0.32, 1.63)
+    glTranslatef(0.35, 0.32, 1.63 + 0.5)
 
     # верхняя часть туловища
     glColor3f((66 - 10) / 255, (40 - 10) / 255, 0 / 255)
-    glTranslatef(-0.55, 0, -1)
+    glTranslatef(-0.55, 0, -1 - 0.5)
     glutSolidCube(0.5)
-    glTranslatef(0.55, 0, 1)
+    glTranslatef(0.55, 0, 1 + 0.5)
 
     # левая рука
     glColor3f((66 - 5) / 255, (40 - 5) / 255, 0 / 255)
-    glTranslatef(-0.860, 0, -1)
+    glTranslatef(-0.860, 0, -1 - 0.5)
     glutSolidCube(0.125)
-    glTranslatef(0.860, 0, 1)
+    glTranslatef(0.860, 0, 1 + 0.5)
 
-    glTranslatef(-0.985, 0, -1)
+    glTranslatef(-0.985, 0, -1 - 0.5)
     glutSolidCube(0.125)
-    glTranslatef(0.986, 0, 1)
+    glTranslatef(0.986, 0, 1 + 0.5)
 
-    glTranslatef(-0.985 - 0.125, 0, -1)
+    glTranslatef(-0.985 - 0.125, 0, -1 - 0.5)
     glutSolidCube(0.125)
-    glTranslatef(0.986 + 0.125, 0, 1)
+    glTranslatef(0.986 + 0.125, 0, 1 + 0.5)
 
     # правая рука
     glColor3f((66 - 5) / 255, (40 - 5) / 255, 0 / 255)
-    glTranslatef(-0.25, 0, -1)
+    glTranslatef(-0.25, 0, -1 - 0.5)
     glutSolidCube(0.125)
-    glTranslatef(0.25, 0, 1)
+    glTranslatef(0.25, 0, 1 + 0.5)
 
-    glTranslatef(-0.25 + 0.125, 0, -1)
+    glTranslatef(-0.25 + 0.125, 0, -1 - 0.5)
     glutSolidCube(0.125)
-    glTranslatef(0.25 - 0.125, 0, 1)
+    glTranslatef(0.25 - 0.125, 0, 1 + 0.5)
 
-    glTranslatef(-0.25 + 0.125 * 2, 0, -1)
+    glTranslatef(-0.25 + 0.125 * 2, 0, -1 - 0.5)
     glutSolidCube(0.125)
-    glTranslatef(0.25 - 0.125 * 2, 0, 1)
+    glTranslatef(0.25 - 0.125 * 2, 0, 1 + 0.5)
 
 
 pygame.init()
@@ -176,6 +239,10 @@ while run:
             glTranslatef(-ms, 0, 0)
         if keypress[pygame.K_a]:
             glTranslatef(ms, 0, 0)
+        if keypress[pygame.K_SPACE]:
+            glTranslatef(0, -ms, 0)
+        if keypress[pygame.K_LSHIFT]:
+            glTranslatef(0, ms, 0)
 
         # apply the left and right rotation
         glRotatef(mouseMove[0] * 0.1, 0.0, 1.0, 0.0)
