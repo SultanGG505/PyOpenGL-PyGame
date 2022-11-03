@@ -6,14 +6,44 @@ from OpenGL.GLUT import *
 
 
 def draw():
-    glColor3f(0.2, 0.13, 0.0)
+    glClearColor(0.48, 0.86, 0.92, 1.0)
 
-
-    glTranslatef(-0, -0.02, 0.16)
+    # красное
+    glColor3f(1, 0, 0)
+    glTranslatef(0.1, -0.02, 0.22)
     glRotatef(90.0, 1.0, 0.0, 0.0)
-    glutSolidTorus(0.050, 0.150, 50, 50)
-    glRotatef(-41.0, 1.0, 0.0, 0.0)
-    glTranslatef(0, 0.02, -0.16)
+    glutSolidTorus(0.020, 0.250, 50, 50)
+    glRotatef(-90.0, 1.0, 0.0, 0.0)
+    glTranslatef(-0.1, 0.02, -0.22)
+
+    # чёрное
+    glColor3f(0.0, 0.0, 0.0)
+    glTranslatef(-0.6, -0.02, 0.22)
+    glRotatef(90.0, 1.0, 0.0, 0.0)
+    glutSolidTorus(0.020, 0.250, 50, 50)
+    glRotatef(-90.0, 1.0, 0.0, 0.0)
+    glTranslatef(0.6, 0.02, -0.22)
+
+    glColor3f(0, 1, 0)
+    glTranslatef(-0.25, -0.02, -0.03)
+    glRotatef(90.0, 1.0, 0.0, 0.0)
+    glutSolidTorus(0.020, 0.250, 50, 50)
+    glRotatef(-90.0, 1.0, 0.0, 0.0)
+    glTranslatef(0.25, 0.02, 0.03)
+
+    glColor3f(255/255, 255/255, 0/255)
+    glTranslatef(-0.95, -0.02, -0.03)
+    glRotatef(90.0, 1.0, 0.0, 0.0)
+    glutSolidTorus(0.020, 0.250, 50, 50)
+    glRotatef(-90.0, 1.0, 0.0, 0.0)
+    glTranslatef(0.95, 0.02, 0.03)
+
+    glColor3f(0/255, 62/255, 247/255)
+    glTranslatef(-1.3, -0.02, 0.22)
+    glRotatef(90.0, 1.0, 0.0, 0.0)
+    glutSolidTorus(0.020, 0.250, 50, 50)
+    glRotatef(-90.0, 1.0, 0.0, 0.0)
+    glTranslatef(1.3, 0.02, -0.22)
 
 
 pygame.init()
