@@ -199,6 +199,10 @@ pygame.mouse.set_visible(False)
 up_down_angle = 0.0
 paused = False
 run = True
+
+x = 1
+y = -1
+z = 1
 while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -243,6 +247,22 @@ while run:
             glTranslatef(0, -ms, 0)
         if keypress[pygame.K_LSHIFT]:
             glTranslatef(0, ms, 0)
+        if keypress[pygame.K_LEFT]:
+            x -= 0.1
+        if keypress[pygame.K_RIGHT]:
+            x += 0.1
+        if keypress[pygame.K_UP]:
+            y -= 0.1
+        if keypress[pygame.K_DOWN]:
+            y += 0.1
+        if keypress[pygame.K_1]:
+            z -= 0.1
+        if keypress[pygame.K_2]:
+            z += 0.1
+        if keypress[pygame.K_BACKSPACE]:
+            x = 1
+            y = -1
+            z = 1
 
         # apply the left and right rotation
         glRotatef(mouseMove[0] * 0.1, 0.0, 1.0, 0.0)
@@ -255,7 +275,7 @@ while run:
         glPopMatrix()
         glMultMatrixf(viewMatrix)
 
-        glLightfv(GL_LIGHT0, GL_POSITION, [1, -1, 1, 0])
+        glLightfv(GL_LIGHT0, GL_POSITION, [x, y, z, 0])
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
