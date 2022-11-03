@@ -7,7 +7,13 @@ from OpenGL.GLUT import *
 
 def draw():
     glColor3f(0.2, 0.13, 0.0)
-    glutSolidCube(1.0)
+
+
+    glTranslatef(-0, -0.02, 0.16)
+    glRotatef(90.0, 1.0, 0.0, 0.0)
+    glutSolidTorus(0.050, 0.150, 50, 50)
+    glRotatef(-41.0, 1.0, 0.0, 0.0)
+    glTranslatef(0, 0.02, -0.16)
 
 
 pygame.init()
