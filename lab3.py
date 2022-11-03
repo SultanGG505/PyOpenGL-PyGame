@@ -5,10 +5,9 @@ from OpenGL.GLU import *
 from OpenGL.GLUT import *
 
 
-def draw():
+def drawBubliks():
     glClearColor(0.48, 0.86, 0.92, 1.0)
-
-    # красное
+    # красный
     glColor3f(1, 0, 0)
     glTranslatef(0.1, -0.02, 0.22)
     glRotatef(90.0, 1.0, 0.0, 0.0)
@@ -16,7 +15,7 @@ def draw():
     glRotatef(-90.0, 1.0, 0.0, 0.0)
     glTranslatef(-0.1, 0.02, -0.22)
 
-    # чёрное
+    # чёрный
     glColor3f(0.0, 0.0, 0.0)
     glTranslatef(-0.6, -0.02, 0.22)
     glRotatef(90.0, 1.0, 0.0, 0.0)
@@ -24,6 +23,7 @@ def draw():
     glRotatef(-90.0, 1.0, 0.0, 0.0)
     glTranslatef(0.6, 0.02, -0.22)
 
+    # зелёный
     glColor3f(0, 1, 0)
     glTranslatef(-0.25, -0.02, -0.03)
     glRotatef(90.0, 1.0, 0.0, 0.0)
@@ -31,14 +31,16 @@ def draw():
     glRotatef(-90.0, 1.0, 0.0, 0.0)
     glTranslatef(0.25, 0.02, 0.03)
 
-    glColor3f(255/255, 255/255, 0/255)
+    # жёлтый
+    glColor3f(255 / 255, 255 / 255, 0 / 255)
     glTranslatef(-0.95, -0.02, -0.03)
     glRotatef(90.0, 1.0, 0.0, 0.0)
     glutSolidTorus(0.020, 0.250, 50, 50)
     glRotatef(-90.0, 1.0, 0.0, 0.0)
     glTranslatef(0.95, 0.02, 0.03)
 
-    glColor3f(0/255, 62/255, 247/255)
+    # синий
+    glColor3f(0 / 255, 62 / 255, 247 / 255)
     glTranslatef(-1.3, -0.02, 0.22)
     glRotatef(90.0, 1.0, 0.0, 0.0)
     glutSolidTorus(0.020, 0.250, 50, 50)
@@ -46,8 +48,62 @@ def draw():
     glTranslatef(1.3, 0.02, -0.22)
 
 
+def drawBear():
+    # нижняя часть туловища
+    glColor3f(66 / 255, 40 / 255, 0 / 255)
+    glTranslatef(-0.55, 0, -1.5)
+    glutSolidCube(0.5)
+    glTranslatef(0.55, 0, 1.5)
+
+    # левая нога
+    glColor3f(30 / 255, 30 / 255, 30 / 255)
+    glTranslatef(-0.75, -0.32, -1.63)
+    glutSolidCube(0.125)
+    glTranslatef(0.75, 0.32, 1.63)
+
+    # правая нога
+    glColor3f(30 / 255, 30 / 255, 30 / 255)
+    glTranslatef(-0.35, -0.32, -1.63)
+    glutSolidCube(0.125)
+    glTranslatef(0.35, 0.32, 1.63)
+
+    # верхняя часть туловища
+    glColor3f((66 - 10) / 255, (40 - 10) / 255, 0 / 255)
+    glTranslatef(-0.55, 0, -1)
+    glutSolidCube(0.5)
+    glTranslatef(0.55, 0, 1)
+
+    # левая рука
+    glColor3f((66 - 5) / 255, (40 - 5) / 255, 0 / 255)
+    glTranslatef(-0.860, 0, -1)
+    glutSolidCube(0.125)
+    glTranslatef(0.860, 0, 1)
+
+    glTranslatef(-0.985, 0, -1)
+    glutSolidCube(0.125)
+    glTranslatef(0.986, 0, 1)
+
+    glTranslatef(-0.985 - 0.125, 0, -1)
+    glutSolidCube(0.125)
+    glTranslatef(0.986 + 0.125, 0, 1)
+
+    # правая рука
+    glColor3f((66 - 5) / 255, (40 - 5) / 255, 0 / 255)
+    glTranslatef(-0.25, 0, -1)
+    glutSolidCube(0.125)
+    glTranslatef(0.25, 0, 1)
+
+    glTranslatef(-0.25 + 0.125, 0, -1)
+    glutSolidCube(0.125)
+    glTranslatef(0.25 - 0.125, 0, 1)
+
+    glTranslatef(-0.25 + 0.125 * 2, 0, -1)
+    glutSolidCube(0.125)
+    glTranslatef(0.25 - 0.125 * 2, 0, 1)
+
+
 pygame.init()
-display = (1200, 900)
+display = (720, 480)
 scree = pygame.display.set_mode(display, DOUBLEBUF | OPENGL)
 
 glutInit(sys.argv)
@@ -137,7 +193,8 @@ while run:
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
         glPushMatrix()
-        draw()
+        drawBubliks()
+        drawBear()
         glPopMatrix()
 
         pygame.display.flip()
