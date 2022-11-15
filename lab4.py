@@ -52,12 +52,14 @@ def drawBubliks():
 
 def drawSphere():
     # голова
-    GLfloat
-    glEnable(GL_COLOR_MATERIAL)
+    ambient = [0.0215, 0.1745, 0.0215]
+    diffuse = [0.07568, 0.61424, 0.07568]
     specular = [0.0, 0.0, 0.0, 1.0]
-    glColorMaterial(GL_FRONT_AND_BACK, GL_SPECULAR)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, specular)
-    glColor3f(66 / 255, 40 / 255, 0 / 255)
+    glMaterialfv(GL_FRONT, GL_AMBIENT, ambient)
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuse)
+    glMaterialfv(GL_FRONT, GL_SPECULAR, specular)
+    glMaterialfv(GL_FRONT, GL_SHININESS, 0.6 * 128.0)
+    # glColor3f(66 / 255, 40 / 255, 0 / 255)
     glTranslatef(-0.55, 0, -0.4 - 0.5)
     glutSolidCube(0.5)
     glTranslatef(0.55, 0, 0.4 + 0.5)
